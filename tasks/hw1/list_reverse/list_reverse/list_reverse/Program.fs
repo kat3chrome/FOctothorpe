@@ -1,8 +1,8 @@
-﻿let rec reverse list =
+﻿let rec reverse list acc=
     match list with
-    |[] -> []
-    |[x] -> [x]
-    |head::tail -> reverse tail @ [head]
+    | [] -> []
+    | [x] -> x::acc
+    | head::tail -> reverse tail (head::acc)
 
-let list = [ 1 .. 10 ] @ 12::[5; 7]
-printf "%A" (reverse list)
+let list = [1..1000000]
+printf "%A" (reverse list [])
