@@ -5,6 +5,6 @@
         else first
     if index >= 0 then
         countFibonacciByIndexSubfunction 0 1 1
-    else raise (System.Exception($"Incorrect index '{index}'"))
+    else failwith $"Incorrect index '{index}'"
     
-printfn "%A" (countFibonacciByIndex 10)
+printfn "%A" (countFibonacciByIndex -1)
