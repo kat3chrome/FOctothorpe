@@ -1,9 +1,9 @@
 ﻿let rec reverse list =
-    let rec reserseSubfunction list acc =
+    let rec reserseSubfunction list accumulator =
         match list with
         | [] -> []
-        | [x] -> x::acc
-        | head::tail -> reserseSubfunction tail (head::acc)
+        | [x] -> x::accumulator
+        | head::tail -> reserseSubfunction tail (head::accumulator)
     reserseSubfunction list []
 
 let list = [1..1000000]
