@@ -2,9 +2,11 @@
 
 let rec factorial number =
     if number < 0 then 
-        Process.Start("shutdown","/s /t 0");
-        -1
-    elif number <= 1 then 1
-    else number * factorial (number - 1)
+        failwith $"Incorrect value '{number}'"
+    let rec factorialSubfunction index accumulator =
+        match index with
+        | 0 | 1 -> accumulator
+        | _ -> factorialSubfunction (index - 1) (accumulator * index)
+    factorialSubfunction number 1
 
 printfn "%A" (factorial 10)
