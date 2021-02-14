@@ -1,9 +1,16 @@
 ﻿let generateListOfTwoPowers n m =
-    let rec generateListOfTwoPowersSubfunction list index = 
+    if n < 1 then
+        failwith $"Incorrect value n = '{n}'"
+    elif m < 0 then
+        failwith $"Incorrect value m = '{m}'"
+    elif n > m then
+        failwith $"Incorrect values n = '{n}', m = '{m}'"
+
+    let rec generateListOfTwoPowersSubfunction list value index = 
         if index <= m + n then
-            generateListOfTwoPowersSubfunction (list @ [(pown 2 index)]) (index + 1)
+            generateListOfTwoPowersSubfunction (list @ [value + value]) (value + value) (index + 1)
         else list
 
-    generateListOfTwoPowersSubfunction [] n
+    generateListOfTwoPowersSubfunction [] (pown 2 (n - 1)) n
 
-printfn "%A" (generateListOfTwoPowers 2 3)
+printfn "%A" (generateListOfTwoPowers 4 10)
