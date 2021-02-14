@@ -1,4 +1,4 @@
-﻿let rec countFibonacciByIndex index =
+﻿let countFibonacciByIndex index =
     let rec countFibonacciByIndexSubfunction first second currentIndex = 
         if currentIndex <= index then
             countFibonacciByIndexSubfunction (first + second) first (currentIndex + 1)
@@ -7,4 +7,4 @@
         countFibonacciByIndexSubfunction 0 1 1
     else failwith $"Incorrect index '{index}'"
     
-printfn "%A" (countFibonacciByIndex -1)
+printfn "%A" (countFibonacciByIndex 10)
