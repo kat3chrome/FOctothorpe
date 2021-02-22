@@ -7,9 +7,7 @@ module main
     let (|Even|Odd|) input = if input % 2 = 0 then Even else Odd
 
     let evenCountinWithMap list = 
-        List.sum (list |> List.map (fun x -> match x with
-                                                | Even -> 1
-                                                | Odd -> 0))
+        List.sum (list |> List.map (fun x -> abs((x + 1) % 2)))
 
     let evenCountinWithFilter list = 
         List.length (list |> List.filter (fun x -> x % 2 = 0))
