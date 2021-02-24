@@ -3,7 +3,7 @@ module UsingMapAndFilterAndFoldTest
 open NUnit.Framework
 open FsUnit
 open FsCheck.NUnit
-open main
+open Main
 
 [<Test>]
 let ``Even counting with map that should equal 10`` () =

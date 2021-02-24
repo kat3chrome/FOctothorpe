@@ -2,16 +2,16 @@
 // (с использованием стандартных функций map, filter, fold). Использование рекурсии 
 // не допускается, зато нужен FsCheck для проверки функций на эквивалентность.
 
-module main
+module Main
 
     let evenCountinWithMap list = 
-        List.sum (list |> List.map (fun x -> abs((x + 1) % 2)))
+        list |> List.map (fun x -> abs((x + 1) % 2)) |> List.sum
 
     let evenCountinWithFilter list = 
-        List.length (list |> List.filter (fun x -> x % 2 = 0))
+        list |> List.filter (fun x -> x % 2 = 0) |> List.length
 
     let evenCountinWithFold list = 
-        abs((list |> List.fold (fun x y -> x + abs(y % 2)) 0) - List.length list)
+        list |> List.fold (fun x y -> x + abs ((y + 1) % 2)) 0
 
     let list = [-10..10]
 
