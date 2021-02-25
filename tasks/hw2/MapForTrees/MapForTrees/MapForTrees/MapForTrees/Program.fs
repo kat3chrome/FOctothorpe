@@ -4,17 +4,17 @@
 
 module Main
 
-    /// Binary tree.
+    /// Just a tree.
     type Tree<'a> =
-        |TreeTwoChild of 'a * Tree<'a> * Tree<'a>
-        |TreeOneChild of 'a * Tree<'a>
-        |Leaf of 'a
+        | TreeTwoChild of 'a * Tree<'a> * Tree<'a>
+        | TreeOneChild of 'a * Tree<'a>
+        | Leaf of 'a
 
     let rec mapForTree function' tree =
         match tree with
-        |TreeTwoChild(node, leftChild, rightChild) -> TreeTwoChild(function' node, mapForTree function' leftChild, mapForTree function' rightChild)
-        |TreeOneChild(node, child) -> TreeOneChild(function' node, mapForTree function' child)
-        |Leaf(node) -> Leaf(function' node)
+        | TreeTwoChild(node, leftChild, rightChild) -> TreeTwoChild(function' node, mapForTree function' leftChild, mapForTree function' rightChild)
+        | TreeOneChild(node, child) -> TreeOneChild(function' node, mapForTree function' child)
+        | Leaf(node) -> Leaf(function' node)
 
     [<EntryPoint>]
     let main argv =
