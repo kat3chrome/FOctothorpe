@@ -4,21 +4,20 @@
 
 module Main
 
-    /// Just a tree.
+    /// Binary tree.
     type Tree<'a> =
-        | TreeTwoChild of 'a * Tree<'a> * Tree<'a>
-        | TreeOneChild of 'a * Tree<'a>
-        | Leaf of 'a
+        | Node of 'a * Tree<'a> * Tree<'a>
+        | Empty
 
     let rec mapForTree function' tree =
-        match tree with
-        | TreeTwoChild(node, leftChild, rightChild) -> TreeTwoChild(function' node, mapForTree function' leftChild, mapForTree function' rightChild)
-        | TreeOneChild(node, child) -> TreeOneChild(function' node, mapForTree function' child)
-        | Leaf(node) -> Leaf(function' node)
+           match tree with
+           | Node (value, leftChild, rightChild) -> Node (function' value, mapForTree function' leftChild, mapForTree function' rightChild)
+           | Empty -> Empty
+
 
     [<EntryPoint>]
     let main argv =
-        let tree = TreeTwoChild (1, TreeOneChild (2, TreeTwoChild (3, Leaf 6, Leaf 7)), TreeTwoChild (3, Leaf 6, Leaf 7))
+        let tree = Node (1, Node (2, Node (3, Empty, Empty), Empty), Node (3, Empty, Empty))
         printfn "%A" tree
         printfn "%A" (mapForTree (fun x -> x + 1) tree)
         0 
