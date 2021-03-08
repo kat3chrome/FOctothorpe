@@ -1,0 +1,31 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+\section*{Task}
+
+Prove that $S K K = I$ \newline
+
+\section*{Solution}
+
+$$S = \lambda x\; y\; z.x\; z\; (y\; z)$$
+
+$$K = \lambda x\; y.x$$
+
+$$I = \lambda x.x$$
+
+$$S K K = (S K) K \rightarrow_\beta$$
+
+$$((\lambda x\; y\; z.x\; z\; (y\; z))\; K\; K\rightarrow_\beta$$
+
+$$((\lambda y\; z.K z\; (y\; z))\; K\rightarrow_\beta$$
+
+$$((\lambda z.K z\; (K z))\rightarrow_\beta$$
+
+$$((\lambda z.K z\; (K z))\rightarrow_\beta$$
+
+$$(\lambda z.z)\rightarrow_\beta$$
+
+$$I$$
+
+\end{document}
