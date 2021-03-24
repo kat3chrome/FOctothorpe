@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "roundingWorkflow", "roundingWorkflow\roundingWorkflow.fsproj", "{8450439C-A4B6-428D-9CAA-FFB242777102}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "roundingWorkflowTest", "roundingWorkflowTest\roundingWorkflowTest.fsproj", "{03EB3B0D-C0AE-41A9-ADAE-BFB2F0DD2895}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8450439C-A4B6-428D-9CAA-FFB242777102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8450439C-A4B6-428D-9CAA-FFB242777102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8450439C-A4B6-428D-9CAA-FFB242777102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8450439C-A4B6-428D-9CAA-FFB242777102}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03EB3B0D-C0AE-41A9-ADAE-BFB2F0DD2895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03EB3B0D-C0AE-41A9-ADAE-BFB2F0DD2895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03EB3B0D-C0AE-41A9-ADAE-BFB2F0DD2895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03EB3B0D-C0AE-41A9-ADAE-BFB2F0DD2895}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76A45F0C-375E-4EFF-AA10-DA016C7F12AD}
+	EndGlobalSection
+EndGlobal
