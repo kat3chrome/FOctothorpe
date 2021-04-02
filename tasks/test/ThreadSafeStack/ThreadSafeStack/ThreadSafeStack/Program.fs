@@ -1,4 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
+﻿module ThreadSafeStack
 
 type ThreadSafeStack<'T>() =    
   let mutable stack : List<'T> = []
