@@ -4,7 +4,7 @@ open FsUnit
 
 [<Test>]
 let ``"1" + "2" should equal Some(3)`` () =
-    calculate() {
+    Calculator() {
         let! x = "1"
         let! y = "2"
         let z = x + y
@@ -13,7 +13,7 @@ let ``"1" + "2" should equal Some(3)`` () =
 
 [<Test>]
 let ``"1" + "Ъ" should equal None`` () =
-    calculate() {
+    Calculator() {
         let! x = "1"
         let! y = "Ъ"
         let z = x + y

@@ -2,7 +2,8 @@
 
     open System
 
-    type calculate() =
+    // A workflow that performs calculations on numbers specified as strings.
+    type Calculator() =
         member this.Bind (n : string, func) =
             let parsedString = Int32.TryParse(n)
             match parsedString with
@@ -12,14 +13,14 @@
         member this.Return(x) =
             Some(x) 
 
-    calculate () {
+    Calculator () {
         let! x = "1"
         let! y = "2"
         let z = x + y
         return z
     } |> printf "%A\n"
 
-    calculate () {
+    Calculator () {
         let! x = "1"
         let! y = "Ъ"
         let z = x + y
