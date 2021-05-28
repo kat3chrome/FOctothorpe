@@ -20,5 +20,5 @@ let ``42 should not be correct`` () =
     Assert.IsFalse(isCorrectBracketSequence "42")
 
 [<Test>]
-let ``empty string should not be correct`` () =
-    Assert.IsFalse(isCorrectBracketSequence "")
+let ``empty string should be correct`` () =
+    Assert.IsTrue(isCorrectBracketSequence "")
