@@ -10,7 +10,7 @@ let isCorrectBracketSequence input =
             loop t (h :: stack)
         | (h :: _, _) when stack.Length > 0 && brackets.[stack.Head] <> h -> false
         | (h :: t, _ :: stackTail) when stack.Length > 0 && brackets.[stack.Head] = h -> loop t stackTail
-        | ([], _) when stack.Length = 0 -> true
+        | ([], []) -> true
         | _ -> false
     loop sequence []
 
