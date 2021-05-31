@@ -1,18 +1,13 @@
 ﻿module BracketSequence
 
+
 /// Get a reverse bracket
 let getOpenBracket bracket =
-    match bracket with 
-    | '(' -> ')'
-    | '[' -> ']'
-    | '{' -> '}'
-    | _ -> failwith "[ERROR] unknown symbol"
+    (Map.ofList [ ('(', ')'); ('[', ']'); ('{', '}') ]).[bracket]
 
 /// Check iп the bracket a open 
 let isOpenBracket bracket =
-    match bracket with
-    | '[' | '{' | '(' -> true
-    | _ -> false
+    (Map.ofList [ ('(', ')'); ('[', ']'); ('{', '}') ]).ContainsKey bracket
 
 /// Check if the bracket is an open bracket
 let isCorrectBracketSequence input =
