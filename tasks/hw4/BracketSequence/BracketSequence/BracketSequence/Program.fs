@@ -1,7 +1,5 @@
 ﻿module BracketSequence
 
-
-/// Check if the bracket is an open bracket
 let isCorrectBracketSequence input =
     let brackets = Map.ofList [ ('(', ')'); ('[', ']'); ('{', '}') ]
     let sequence = Seq.toList input
