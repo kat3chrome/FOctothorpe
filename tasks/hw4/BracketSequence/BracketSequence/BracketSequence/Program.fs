@@ -1,5 +1,6 @@
 ﻿module BracketSequence
 
+/// Checking that the bracket sequence is correct
 let isCorrectBracketSequence input =
     let brackets = Map.ofList [ ('(', ')'); ('[', ']'); ('{', '}') ]
     let sequence = Seq.toList input
@@ -8,8 +9,8 @@ let isCorrectBracketSequence input =
         match subsequence, stack with
         | (h :: t, _) when brackets.ContainsKey h ->
             loop t (h :: stack)
-        | (h :: _, _) when stack.Length > 0 && brackets.[stack.Head] <> h -> false
-        | (h :: t, _ :: stackTail) when stack.Length > 0 && brackets.[stack.Head] = h -> loop t stackTail
+        | (h :: _, stackHead :: _) when brackets.[stackHead] <> h -> false
+        | (h :: t, stackHead :: stackTail) when brackets.[stackHead] = h -> loop t stackTail
         | ([], []) -> true
         | _ -> false
     loop sequence []
