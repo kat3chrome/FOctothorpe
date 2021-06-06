@@ -14,11 +14,8 @@ let findByPhone contacts phone =
 let findByName contacts name =
     Map.filter (fun _ value -> value = name) contacts
 
-/// Filename of a contacts storage 
-let phoneBookPath = "phonebook.data"
-
 /// Read contacts from a storage
-let readContacts () =
+let readContacts phoneBookPath =
     if File.Exists phoneBookPath
     then
         phoneBookPath |> File.ReadAllText |> JsonSerializer.Deserialize |> Map.ofSeq
@@ -26,7 +23,7 @@ let readContacts () =
         Map.empty
 
 /// Write contacts from a storage
-let writeContacts contacts =
+let writeContacts phoneBookPath contacts =
     use fileStream = new FileStream(phoneBookPath, FileMode.Create)
     let json = JsonSerializer.SerializeToUtf8Bytes(contacts |> Map.toSeq)
     fileStream.Write(json, 0, json.Length)
@@ -34,7 +31,7 @@ let writeContacts contacts =
 /// Pretty print of contracts
 let rec printContacts contacts =
     let rec loop contacts = 
-        match contacts  with
+        match contacts with
         | (name, number)::t -> 
             printfn "name: '%s' - contact: '%s'" name number
             loop t
@@ -43,6 +40,7 @@ let rec printContacts contacts =
  
 /// User interface loop
 let UI () =
+    let phoneBookPath = "phonebook.data"
     let commands = """1. Exit
 2. Add record
 3. Find by phone
@@ -81,11 +79,11 @@ let UI () =
             loop contacts
         | "6" -> 
             printfn "Saved"
-            writeContacts contacts |> ignore
+            writeContacts phoneBookPath contacts 
             loop contacts
         | "7" -> 
             printfn "Read"
-            readContacts () |> loop
+            readContacts phoneBookPath |> loop
         | _ -> 
             printfn "Incorrect command"
             loop contacts
