@@ -39,7 +39,7 @@ let rec printContacts contacts =
     contacts |> Map.toList |> loop
  
 /// User interface loop
-let UI () =
+let uI () =
     let phoneBookPath = "phonebook.data"
     let commands = """1. Exit
 2. Add record
@@ -89,4 +89,4 @@ let UI () =
             loop contacts
     loop Map.empty
 
-UI ()
+uI ()

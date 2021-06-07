@@ -11,34 +11,16 @@ let ``addRecord should add record`` () =
     |> should not' (equal Map.empty)
 
 [<Test>]
-let ``If record does not added with addRecord, it should not exist`` () =
-    addRecord Map.empty "name" "phone"
-    |> Map.filter (fun phone name -> phone = "phone1" || name = "name1")
-    |> should equal Map.empty
-
-[<Test>]
 let ``If record exist, findByPhone should find it`` () =
     addRecord Map.empty "name" "phone"
     |> findByPhone <| "phone"
     |> should not' (equal Map.empty)
 
 [<Test>]
-let ``If record does not exist, findByPhone should not find it`` () =
-    addRecord Map.empty "name" "phone"
-    |> findByPhone <| "phone1"
-    |> should equal Map.empty
-
-[<Test>]
 let ``If record exist, findByName should find it`` () =
     addRecord Map.empty "name" "phone"
     |> findByName <| "name"
     |> should not' (equal Map.empty)
-
-[<Test>]
-let ``If record does not exist, findByName should not find it`` () =
-    addRecord Map.empty "name" "phone"
-    |> findByName <| "name1"
-    |> should equal Map.empty
 
 [<Test>]
 let ``Data from writeContacts -> readContacts should be equal of initial data`` () =
