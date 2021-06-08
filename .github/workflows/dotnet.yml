@@ -1,0 +1,25 @@
+name: .NET
+
+on:
+  push:
+    branches: [ PhoneBook ]
+  pull_request:
+    branches: [ PhoneBook ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore tasks/hw4/PhoneBook/PhoneBook/PhoneBook.sln
+    - name: Build
+      run: dotnet build --no-restore tasks/hw4/PhoneBook/PhoneBook/PhoneBook.sln
+    - name: Test
+      run: dotnet test --no-build --verbosity normal tasks/hw4/PhoneBook/PhoneBook/PhoneBook.sln
